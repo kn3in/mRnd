@@ -23,15 +23,6 @@ results <- function(N, alpha, byx, bOLS, R2xz, varx, vary, epower) {
     c <- con^2
     N1 <- (-b + sqrt(b^2 - 4 * a * c)) / (2 * a)
 
-    data.frame(   alpha = alpha,
-               threschi = threschi,
-                    byx = byx,
-                   bOLS = bOLS, 
-                  b2sls = b2sls,
-                  v2sls = v2sls,
-                   R2xz = R2xz,
-                     FF = FF,
-             R2xz_unadj = R2xz_unadj,
-                  power = power,
-                     N1 = N1)
+    data.frame( Parameter = c("alpha", "threschi", "byx", "bOLS", "b2sls", "v2sls", "R2xz", "FF", "R2xz_unadj", "power", "N1"),
+                Value     = c(alpha, threschi, byx, bOLS, b2sls, v2sls, R2xz, FF, R2xz_unadj, power, N1))
 }
