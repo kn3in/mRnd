@@ -3,7 +3,7 @@ library(knitr)
 source("custom_html.R")
 
 shinyUI(pageWithSidebar(
-  customHeaderPanel("mRnd: Power calculations for Mendelian Randomisation"),
+  customHeaderPanel("mRnd: Power calculations for Mendelian Randomization"),
   # headerPanel("mRnd: Power calculations for Mendelian Randomisation"),
   
   sidebarPanel(
@@ -18,7 +18,7 @@ shinyUI(pageWithSidebar(
                 helpText("Estimate of the regression coefficient \\(\\beta_{yx}\\) for the true underlying causal association between the exposure \\((X)\\) and outcome \\((Y)\\) variables")),
       
       wellPanel(numericInput("bOLS", HTML("\\(\\beta_{OLS}\\)"), value = 0),
-                helpText("The regression \\(\\beta_{yx}\\) coefficient for the observational association between the exposure \\((X)\\) and outcome \\((Y)\\) variables")),
+                helpText("The regression \\(\\beta_{OLS}\\) coefficient for the observational association between the exposure \\((X)\\) and outcome \\((Y)\\) variables")),
       
       wellPanel(sliderInput("R2xz", HTML("\\(R^2_{xz}\\)"), min = 0, max = 1, value = 0.01),
                 helpText("Proportion of variance explained for the association between the snp \\((Z)\\) and the exposure variable \\((X)\\)")),

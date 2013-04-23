@@ -14,7 +14,7 @@ shinyServer(function(input, output) {
   
   subsetForResults <- reactive({
      dt <- annotResults()
-     dt <- dt[dt$Parameter %in% c("b2sls", "power"), ]
+     dt <- dt[dt$Parameter %in% c("N1", "power"), ]
   	})
 
   output$result <- renderText(
