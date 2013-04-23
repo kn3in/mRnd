@@ -44,10 +44,7 @@ continuous exposure \\(X\\) (smoking i.e numbers of cigarettes per day) and
 outcome variable \\(Y\\) (lung cancer).")),
         wellPanel(
           h4("Result"),
-          htmlOutput("result")),
-        wellPanel(
-          h4("Testing"),
-          htmlOutput("testing")),
+          tableOutput("result")),
         wellPanel(h4("Citation:"),
         p("Brion MJ, Shakhbazov KS, Visscher PM. (2013)", a(href="http://", "Article Title"), "Journal ..."),
         p("Written by Konstantin Shakhbazov", a(href="https://github.com/kn3in/mRnd", "Source code at GitHub")))

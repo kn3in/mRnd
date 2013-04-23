@@ -4,26 +4,23 @@ source("functions.R", local=TRUE)
 
 shinyServer(function(input, output) {
   
+ inputValues <- reactive(
+  data.frame(      N = ifelse(input$my_method == "power", input$N, NA),
+              epower = ifelse(input$my_method == "samp_size", input$epower, NA),
+               alpha = input$alpha,
+                 byx = input$byx,
+                bOLS = input$bOLS,
+                R2xz = input$R2xz,
+                varx = input$varx,
+                vary = input$vary
+              ))
+
   resultValue <- reactive({
-    results(input$N, input$alpha, input$byx, input$bOLS, input$R2xz, input$varx, input$vary, input$epower)
-  })
+    results(inputValues()$N, inputValues()$alpha, inputValues()$byx, inputValues()$bOLS, inputValues()$R2xz, inputValues()$varx, inputValues()$vary, inputValues()$epower)
+    })
 
-  annotResults <- reactive({
-  	 annotate(resultValue())
-  })
-  
-  subsetForResults <- reactive({
-     dt <- annotResults()
-     dt <- dt[dt$Parameter %in% c("N1", "power"), ]
-  	})
 
-  output$result <- renderText(
-      paste(print(xtable(subsetForResults()), include.rownames = FALSE, type = "html", html.table.attributes = c("class=table-condensed"), print.results = FALSE),
-         tags$script("MathJax.Hub.Queue([\"Typeset\",MathJax.Hub]);"))
-  )
-
-  output$testing <- renderText(
-      paste(print(xtable(resultValue()), include.rownames = FALSE, type = "html", html.table.attributes = c("class=table-condensed"), print.results = FALSE),
-         tags$script("MathJax.Hub.Queue([\"Typeset\",MathJax.Hub]);"))
-  )
+  output$result <- renderTable({
+       resultValue()
+       }, include.rownames = FALSE, include.colnames = FALSE)
 })
