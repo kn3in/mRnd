@@ -1,8 +1,9 @@
 library(shiny)
 library(knitr)
+source("custom_html.R")
 
 shinyUI(pageWithSidebar(
-  headerPanel("mRnd: Power calculations for Mendelian Randomisation"),
+  customHeaderPanel("mRnd: Power calculations for Mendelian Randomisation"),
   
   sidebarPanel(
       h4("Input"),
@@ -37,7 +38,7 @@ continuous exposure $X$ (smoking i.e numbers of cigarettes per day) and
 outcome variable $Y$ (lung cancer)."))),
         wellPanel(
           h4("Result"),
-          tableOutput("result")),
+          htmlOutput("result")),
         wellPanel(h4("Citation:"),
         p("MJ Brion, Visscher PM. (2013)", a(href="http://", "Article Title"), "Journal ..."),
         p("Written by Konstantin Shakhbazov", a(href="https://github.com/kn3in/mRnd", "Source code at GitHub")))
