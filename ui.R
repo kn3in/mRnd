@@ -7,7 +7,7 @@ shinyUI(pageWithSidebar(
   
   sidebarPanel(
       h4("Input"),
-      wellPanel(numericInput("N", HTML(knit2html(text = "$N$")), min = 1, value = 1000, step = 1),
+      wellPanel(numericInput("N", HTML("\\(N\\)"), min = 1, value = 1000, step = 1),
         HTML(knit2html(text = "Sample size"))),
 
       wellPanel(numericInput("alpha", HTML(knit2html(text = "$\\alpha$")), min = 0, max = 1, value = 0.05),

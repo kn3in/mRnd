@@ -26,3 +26,10 @@ results <- function(N, alpha, byx, bOLS, R2xz, varx, vary, epower) {
     data.frame( Parameter = c("alpha", "threschi", "byx", "bOLS", "b2sls", "v2sls", "R2xz", "FF", "R2xz_unadj", "power", "N1"),
                 Value     = c(alpha, threschi, byx, bOLS, b2sls, v2sls, R2xz, FF, R2xz_unadj, power, N1))
 }
+
+annotate <- function(dt) {
+    my_annot <- data.frame(Parameter = c("alpha", "threschi", "byx", "bOLS", "b2sls", "v2sls", "R2xz", "FF", "R2xz_unadj", "power", "N1"),
+                           Description = c("\\(\\alpha\\)", "threschi", "\\(\\beta_{yx}\\)", "bOLS", "b2sls", "v2sls", "R2xz", "FF", "R2xz_unadj", "power", "N1"))  
+
+    merge(dt, my_annot, by.x = "Parameter", by.y = "Parameter", all.x = TRUE)
+}
