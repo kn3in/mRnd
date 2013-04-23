@@ -40,8 +40,8 @@ shinyUI(pageWithSidebar(
           h4("Description:"),
           HTML("
 Power calculations for two-stage least squares Mendelian Randomization studies using a genetic instrument \\(Z\\) (a SNP or allele score),
-continuous exposure \\(X\\) (smoking i.e numbers of cigarettes per day) and
-outcome variable \\(Y\\) (lung cancer).")),
+continuous exposure \\(X\\) (C-reactive protein [g/L]) and
+outcome variable \\(Y\\) (blood pressure [mmHg]).")),
         wellPanel(
           h4("Result"),
           tableOutput("result")),
