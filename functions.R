@@ -23,8 +23,8 @@ results <- function(N, alpha, byx, bOLS, R2xz, varx, vary, epower) {
     c <- con^2
     N1 <- (-b + sqrt(b^2 - 4 * a * c)) / (2 * a)
 
-    data.frame( Parameter = c("alpha", "threschi", "byx", "bOLS", "b2sls", "v2sls", "R2xz", "FF", "R2xz_unadj", "power", "N1"),
-                Value     = c(alpha, threschi, byx, bOLS, b2sls, v2sls, R2xz, FF, R2xz_unadj, power, N1))
+    data.frame( Parameter = c("alpha", "threschi", "byx", "bOLS", "b2sls", "v2sls", "R2xz", "FF", "R2xz_unadj", "power", "N1", "NCP", "con"),
+                Value     = c(alpha, threschi, byx, bOLS, b2sls, v2sls, R2xz, FF, R2xz_unadj, power, N1, NCP, con))
 }
 
 annotate <- function(dt) {
