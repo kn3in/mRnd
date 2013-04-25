@@ -23,7 +23,7 @@ shinyUI(pageWithSidebar(
                 helpText("Type-I error rate")),
       
       wellPanel(numericInput("byx", HTML("\\(\\beta_{yx}\\)"), value = 0),
-                helpText("Estimate of the regression coefficient \\(\\beta_{yx}\\) for the true underlying causal association between the exposure \\((X)\\) and outcome \\((Y)\\) variables")),
+                helpText("The regression coefficient \\(\\beta_{yx}\\) for the true underlying causal association between the exposure \\((X)\\) and outcome \\((Y)\\) variables")),
       
       wellPanel(numericInput("bOLS", HTML("\\(\\beta_{OLS}\\)"), value = 0),
                 helpText("The regression \\(\\beta_{OLS}\\) coefficient for the observational association between the exposure \\((X)\\) and outcome \\((Y)\\) variables")),
