@@ -2,6 +2,7 @@
 results <- function(N, alpha, byx, bOLS, R2xz, varx, vary, epower) {
     
     threschi <- qchisq(1 - alpha, 1) # threshold chi(1) scale
+    f.value <- 1 + N * R2xz / (1 - R2xz)
     con <- (bOLS - byx) * varx # covariance due to YX confounding
     vey <- vary - byx * varx * (2 * bOLS - byx)
     
@@ -11,7 +12,7 @@ results <- function(N, alpha, byx, bOLS, R2xz, varx, vary, epower) {
         NCP <- b2sls^2 / v2sls
         # 2-sided test
         power <- 1 - pchisq(threschi, 1, NCP)
-        data.frame(Parameter = "Power", Value = power)    
+        data.frame(Parameter = c("Power", "NCP", "F-value"), Value = c(power, NCP, f.value))    
     } else {
         # Calculation of sample size given power
         z1 <- qnorm(1 - alpha / 2)

@@ -44,7 +44,8 @@ continuous exposure \\(X\\) (C-reactive protein [g/L]) and
 outcome variable \\(Y\\) (blood pressure [mmHg]).")),
         wellPanel(
           h4("Result"),
-          tableOutput("result")),
+          tableOutput("result"),
+          helpText("NCP: Non-Centrality-Parameter; F-value: The strength of the instrument \\((Z)\\).")),
         wellPanel(h4("Citation:"),
         p("Brion MJ, Shakhbazov KS, Visscher PM. (2013)", a(href="http://", "Article Title"), "Journal ..."),
         p("Written by Konstantin Shakhbazov", a(href="https://github.com/kn3in/mRnd", "Source code at GitHub")))
