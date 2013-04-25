@@ -31,17 +31,19 @@ shinyUI(pageWithSidebar(
       wellPanel(numericInput("R2xz", HTML("\\(R^2_{xz}\\)"), min = 0, max = 1, value = 0.01),
                 helpText("Proportion of variance explained for the association between the snp \\((Z)\\) and the exposure variable \\((X)\\)")),
       
-      wellPanel(numericInput("varx", HTML("\\(\\sigma^2(x)\\)"), value = 1)),
+      wellPanel(numericInput("varx", HTML("\\(\\sigma^2(x)\\)"), value = 1),
+                helpText("Variance of the exposure variable \\((X)\\)")),
       
-      wellPanel(numericInput("vary", HTML("\\(\\sigma^2(y)\\)"), value = 1))),
+      wellPanel(numericInput("vary", HTML("\\(\\sigma^2(y)\\)"), value = 1),
+                helpText("Variance of the outcome variable \\((Y)\\)"))),
   
   mainPanel(
         wellPanel(
           h4("Description:"),
           HTML("
 Power calculations for two-stage least squares Mendelian Randomization studies using a genetic instrument \\(Z\\) (a SNP or allele score),
-continuous exposure \\(X\\) (C-reactive protein [g/L]) and
-outcome variable \\(Y\\) (blood pressure [mmHg]).")),
+a continuous exposure variable \\(X\\) (C-reactive protein [g/L]) and
+a continuous outcome variable \\(Y\\) (blood pressure [mmHg]).")),
         wellPanel(
           h4("Result"),
           tableOutput("result"),
