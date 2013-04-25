@@ -26,7 +26,7 @@ shinyUI(pageWithSidebar(
                 helpText("The regression coefficient \\(\\beta_{yx}\\) for the true underlying causal association between the exposure \\((X)\\) and outcome \\((Y)\\) variables")),
       
       wellPanel(numericInput("bOLS", HTML("\\(\\beta_{OLS}\\)"), value = 0),
-                helpText("The regression \\(\\beta_{OLS}\\) coefficient for the observational association between the exposure \\((X)\\) and outcome \\((Y)\\) variables")),
+                helpText("The regression coefficient \\(\\beta_{OLS}\\) for the observational association between the exposure \\((X)\\) and outcome \\((Y)\\) variables")),
       
       wellPanel(numericInput("R2xz", HTML("\\(R^2_{xz}\\)"), min = 0, max = 1, value = 0.01),
                 helpText("Proportion of variance explained for the association between the snp \\((Z)\\) and the exposure variable \\((X)\\)")),
@@ -46,8 +46,7 @@ a continuous exposure variable \\(X\\) (C-reactive protein [g/L]) and
 a continuous outcome variable \\(Y\\) (blood pressure [mmHg]).")),
         wellPanel(
           h4("Result"),
-          tableOutput("result"),
-          helpText("NCP: Non-Centrality-Parameter; F-value: The strength of the instrument \\((Z)\\).")),
+          tableOutput("result")),
         wellPanel(h4("Working Example"),
           p("If we are interested in calculating the minimum required sample size for performing a Mendelian Randomization (MR) study ascertaining the causal effects of body mass index (BMI) on blood pressure (BP) in children, the required parameters for this online calculator could be taken from, for example, results from a published observational epidemiology study reporting associations between BMI and BP and a SNP instrument that is reliably associated with BMI."),
 p("In an observational study reporting the association of BMI and BP in children\\(^{[1]}\\), the regression coefficients for the association between BMI and SBP (averaged coefficients for boys and girls) was observed to be \\(1.41 \\frac{mmHg}{SD}\\) (no confounder-adjustment) and \\(1.30 \\frac{mmHg}{SD}\\) (adjusted for confounders). The SD for SBP in this sample (from the paper’s online supplementary data) was \\(10.8\\), with an SD of \\(1\\) for BMI."),
