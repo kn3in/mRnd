@@ -8,7 +8,7 @@ results <- function(N, alpha, byx, bOLS, R2xz, varx, vary, epower) {
     
     if (vey < 0) {
     
-        data.frame(Error = "Error: Reconsider input, provided parameters resulted in negative estimates for variance of error term in second step of two step MR model.")
+        data.frame(Error = "Error: Invalid input. The provided parameters result in a negative estimate for variance of the error term in the two-stage least squares model.")
     
     } else {
 
