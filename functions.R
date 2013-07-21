@@ -13,13 +13,16 @@ results <- function(N, alpha, byx, bOLS, R2xz, varx, vary, epower) {
     } else {
 
         if (is.na(epower)) {
+        
             b2sls <- byx + con / (N * R2xz)
             v2sls <- vey / (N * R2xz * varx)
             NCP <- b2sls^2 / v2sls
             # 2-sided test
             power <- 1 - pchisq(threschi, 1, NCP)
             data.frame(Parameter = c("Power", "NCP", "F-statistics"), Value = c(power, NCP, f.value), Description = c("", "Non-Centrality-Parameter", "The strength of the instrument"))    
+        
         } else {
+        
             # Calculation of sample size given power
             z1 <- qnorm(1 - alpha / 2)
             z2 <- qnorm(epower)
@@ -30,6 +33,17 @@ results <- function(N, alpha, byx, bOLS, R2xz, varx, vary, epower) {
             c <- con^2
             N1 <- (-b + sqrt(b^2 - 4 * a * c)) / (2 * a)
             data.frame(Parameter = "Sample Size", Value = N1)
+        
         }
     }
+}
+
+results_beta_based <- function(N, alpha, R2xz, varx, vary, byx) {
+
+    threschi <- qchisq(1 - alpha, 1)
+    R2yz <- byx^2 * (varx / vary) * R2xz
+    NCP <- N * R2yz / (1 - R2yz)
+    power <- 1 - pchisq(threschi, 1, NCP)
+    data.frame(Parameter = c("Power", "NCP"), Value = c(power, NCP), Description = c("", "Non-Centrality-Parameter"))
+
 }
