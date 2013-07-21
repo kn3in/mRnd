@@ -19,8 +19,16 @@ shinyServer(function(input, output) {
     results(inputValues()$N, inputValues()$alpha, inputValues()$byx, inputValues()$bOLS, inputValues()$R2xz, inputValues()$varx, inputValues()$vary, inputValues()$epower)
     })
 
+  resultValueBeta <- reactive({
+    results_beta_based(inputValues()$N, inputValues()$alpha, inputValues()$R2xz, inputValues()$varx, inputValues()$vary, inputValues()$byx)
+    })
 
   output$result <- renderTable({
        resultValue()
        }, include.rownames = FALSE, include.colnames = FALSE)
+
+  output$result_beta <- renderTable({
+       resultValueBeta()
+    }, include.rownames = FALSE, include.colnames = FALSE)
+
 })
