@@ -1,6 +1,6 @@
 library(shiny)
 library(xtable)
-source("functions.R", local=TRUE)
+source("functions.R", local = TRUE)
 
 shinyServer(function(input, output) {
   
