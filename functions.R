@@ -31,7 +31,7 @@ results <- function(N, alpha, byx, bOLS, R2xz, varx, vary, epower) {
             a <- (byx * R2xz)^2
             b <- R2xz * (2 * byx * con - Z * vey / varx)
             c <- con^2
-            N1 <- (-b + sqrt(b^2 - 4 * a * c)) / (2 * a)
+            N1 <- round((-b + sqrt(b^2 - 4 * a * c)) / (2 * a))
             data.frame(Parameter = "Sample Size", Value = N1)
         
         }
