@@ -37,18 +37,19 @@ shinyUI(pageWithSidebar(
                 helpText("Variance of the outcome variable \\((Y)\\)"))),
   
   mainPanel(
-        wellPanel(
-          h4("Description"),
-          HTML("
-Power calculations for two-stage least squares Mendelian Randomization studies using a genetic instrument \\(Z\\) (a SNP or allele score),
-a continuous exposure variable \\(X\\) (e.g.  body mass index [BMI, \\(\\frac{kg}{m^2}]\\)) and
-a continuous outcome variable \\(Y\\) (e.g. blood pressure [mmHg]).")),
-        wellPanel(
-          h4("Result"),
-          tableOutput("result")),
-        wellPanel(
-          h4("Beta-based results"),
-          tableOutput("result_beta")),
+        wellPanel(wellPanel(
+            h4("Description"),
+            HTML("
+  Power calculations for two-stage least squares Mendelian Randomization studies using a genetic instrument \\(Z\\) (a SNP or allele score),
+  a continuous exposure variable \\(X\\) (e.g.  body mass index [BMI, \\(\\frac{kg}{m^2}]\\)) and
+  a continuous outcome variable \\(Y\\) (e.g. blood pressure [mmHg]).")),
+          wellPanel(
+            h4("Result"),
+            tableOutput("result"))),
+          wellPanel(wellPanel(h4("Description"),
+            HTML("Add description here ;)")),
+            wellPanel(h4("Beta-based results"),
+            tableOutput("result_beta"))),
         wellPanel(h4("Working Example"),
           p("If we are interested in calculating the minimum required sample size for performing a Mendelian Randomization (MR) study ascertaining the causal effects of body mass index (BMI) on  systolic blood pressure (SBP) in children, the required parameters for this online calculator could be taken from, for example, results from a published observational epidemiology study reporting associations between BMI and SBP and a SNP instrument that is reliably associated with BMI."),
 p("In an observational study reporting the association of BMI and SBP in children\\(^{[1]}\\), the regression coefficients for the association between BMI and SBP (averaged coefficients for boys and girls) was observed to be \\(1.41 \\frac{mmHg}{SD}\\) (no confounder-adjustment) and \\(1.30 \\frac{mmHg}{SD}\\) (adjusted for confounders). The SD for SBP in this sample (from the paper’s online supplementary data) was \\(10.8\\), with an SD of \\(1\\) for BMI."),
