@@ -37,18 +37,22 @@ shinyUI(pageWithSidebar(
                 helpText("Variance of the outcome variable \\((Y)\\)"))),
   
   mainPanel(
-        wellPanel(wellPanel(
-            h4("Description"),
+        wellPanel(
+            h4("MR power calculation"),
+            wellPanel(
+            h5("Description"),
             HTML("
-  Power calculations for two-stage least squares Mendelian Randomization studies using a genetic instrument \\(Z\\) (a SNP or allele score),
+  Power/Sample size calculations for two-stage least squares Mendelian Randomization studies using a genetic instrument \\(Z\\) (a SNP or allele score),
   a continuous exposure variable \\(X\\) (e.g.  body mass index [BMI, \\(\\frac{kg}{m^2}]\\)) and
   a continuous outcome variable \\(Y\\) (e.g. blood pressure [mmHg]).")),
           wellPanel(
-            h4("Result"),
+            h5("Result"),
             tableOutput("result"))),
-          wellPanel(wellPanel(h4("Description"),
-            HTML("Add description here ;)")),
-            wellPanel(h4("Beta-based results"),
+          wellPanel(
+            h4("Beta-based power calculation"),
+            wellPanel(h5("Description"),
+            HTML("Power/Sample size calculations for the regression association of a genetic instrument \\(Z\\) (e.g. a BMI SNP), with a continuous outcome variable \\(Y\\) (blood pressure).")),
+            wellPanel(h5("Results"),
             tableOutput("result_beta"))),
         wellPanel(h4("Working Example"),
           p("If we are interested in calculating the minimum required sample size for performing a Mendelian Randomization (MR) study ascertaining the causal effects of body mass index (BMI) on  systolic blood pressure (SBP) in children, the required parameters for this online calculator could be taken from, for example, results from a published observational epidemiology study reporting associations between BMI and SBP and a SNP instrument that is reliably associated with BMI."),
