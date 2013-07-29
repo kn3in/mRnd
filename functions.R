@@ -19,7 +19,7 @@ results <- function(N, alpha, byx, bOLS, R2xz, varx, vary, epower) {
             NCP <- b2sls^2 / v2sls
             # 2-sided test
             power <- 1 - pchisq(threschi, 1, NCP)
-            data.frame(Parameter = c("Power", "NCP", "F-statistics"), Value = c(power, NCP, f.value), Description = c("", "Non-Centrality-Parameter", "The strength of the instrument"))    
+            data.frame(Parameter = c("Power", "NCP", "F-statistic"), Value = c(power, NCP, f.value), Description = c("", "Non-Centrality-Parameter", "The strength of the instrument"))    
         
         } else {
         

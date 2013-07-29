@@ -41,7 +41,7 @@ shinyUI(pageWithSidebar(
           h4("Description"),
           HTML("
 Power calculations for two-stage least squares Mendelian Randomization studies using a genetic instrument \\(Z\\) (a SNP or allele score),
-a continuous exposure variable \\(X\\) (e.g. C-reactive protein [g/L]) and
+a continuous exposure variable \\(X\\) (e.g.  body mass index [BMI, \\(\\frac{kg}{m^2}]\\)) and
 a continuous outcome variable \\(Y\\) (e.g. blood pressure [mmHg]).")),
         wellPanel(
           h4("Result"),
