@@ -38,12 +38,24 @@ results <- function(N, alpha, byx, bOLS, R2xz, varx, vary, epower) {
     }
 }
 
-results_beta_based <- function(N, alpha, R2xz, varx, vary, byx) {
+results_beta_based <- function(N, alpha, R2xz, varx, vary, byx, epower) {
 
     threschi <- qchisq(1 - alpha, 1)
     R2yz <- byx^2 * (varx / vary) * R2xz
-    NCP <- N * R2yz / (1 - R2yz)
-    power <- 1 - pchisq(threschi, 1, NCP)
-    data.frame(Parameter = c("Power", "NCP"), Value = c(power, NCP), Description = c("", "Non-Centrality-Parameter"))
+    
+    if(is.na(epower)) {
+    
+        NCP <- N * R2yz / (1 - R2yz)
+        power <- 1 - pchisq(threschi, 1, NCP)
+        data.frame(Parameter = c("Power", "NCP"), Value = c(power, NCP), Description = c("", "Non-Centrality-Parameter"))
+    
+    } else {
 
+        z1 <- qnorm(1 - alpha / 2)
+        z2 <- qnorm(epower)
+        Z  <- (z1 + z2)^2
+        N2 <- Z * (1 - R2yz) / R2yz
+        data.frame(Parameter = "Sample Size", Value = N2)
+
+    }
 }
