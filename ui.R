@@ -63,6 +63,6 @@ p("\\(*\\) \\(\\beta_{yx}\\) refers to the unknown true causal association betwe
 p("1. Lawlor DA, Benfield L, Logue J et al. ", a(href="http://www.bmj.com/content/341/bmj.c6224", "Association between general and central adiposity in childhood, and change in these, with cardiovascular risk factors in adolescence: prospective cohort study."), " BMJ 2010; 341: c6224."),
 p("2. Frayling TM, Timpson NJ, Weedon MN et al.", a(href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2646098/", "A Common variant in the FTO gene is associated with body mass index and predisposes to childhood and adult obesity."), "Science 2007; 316(5826): 889-894.")),
         wellPanel(h4("Citation"),
-        p("Brion MJ, Shakhbazov KS, Visscher PM. (2013)", a(href="http://", "Article Title"), "Journal ..."),
-        p("Written by Konstantin Shakhbazov", a(href="https://github.com/kn3in/mRnd", "Source code at GitHub")))
+        p(a(href="http://ije.oxfordjournals.org/content/42/5/1497.abstract", "Calculating statistical power in Mendelian randomization studies"), "Marie-Jo A Brion, Konstantin Shakhbazov, Peter M Visscher", "International Journal of Epidemiology 2013 42: 1497-1501")),
+        wellPanel(p(a(href="https://github.com/kn3in/mRnd", "Source code at GitHub")))
 )))
