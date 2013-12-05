@@ -2,42 +2,8 @@ library(shiny)
 library(knitr)
 source("custom_html.R")
 
-shinyUI(pageWithSidebar(
-  customHeaderPanel("mRnd: Power calculations for Mendelian Randomization"),
-    
-  sidebarPanel(
-      h4("Input"),
-      wellPanel(
-        h6("Calculate:"),
-        radioButtons("my_method", "",
-                       list("Power" = "power",
-                            "Sample size" = "samp_size")),
-        h6("Provide:"), 
-      conditionalPanel(condition = 'input.my_method == "power"',
-                       numericInput("N", "Sample size", min = 1, value = 1000, step = 1)),
-      conditionalPanel(condition = 'input.my_method == "samp_size"',
-                       numericInput("epower", "Power", min = 0, max = 1, value = 0.8))),
-
-      wellPanel(numericInput("alpha", HTML("\\(\\alpha\\)"), min = 0, max = 1, value = 0.05),
-                helpText("Type-I error rate")),
-      
-      wellPanel(numericInput("byx", HTML("\\(\\beta_{yx}\\)"), value = 0),
-                helpText("The regression coefficient \\(\\beta_{yx}\\) for the true underlying causal association between the exposure \\((X)\\) and outcome \\((Y)\\) variables")),
-      
-      wellPanel(numericInput("bOLS", HTML("\\(\\beta_{OLS}\\)"), value = 0),
-                helpText("The regression coefficient \\(\\beta_{OLS}\\) for the observational association between the exposure \\((X)\\) and outcome \\((Y)\\) variables")),
-      
-      wellPanel(numericInput("R2xz", HTML("\\(R^2_{xz}\\)"), min = 0, max = 1, value = 0.01),
-                helpText("Proportion of variance explained for the association between the snp \\((Z)\\) and the exposure variable \\((X)\\)")),
-      
-      wellPanel(numericInput("varx", HTML("\\(\\sigma^2(x)\\)"), value = 1),
-                helpText("Variance of the exposure variable \\((X)\\)")),
-      
-      wellPanel(numericInput("vary", HTML("\\(\\sigma^2(y)\\)"), value = 1),
-                helpText("Variance of the outcome variable \\((Y)\\)"))),
-  
-  mainPanel(
-        wellPanel(
+app_output <- function() {
+mainPanel(wellPanel(
             h4("Two-stage least squares"),
             tableOutput("result"),
             HTML("
@@ -64,5 +30,47 @@ p("1. Lawlor DA, Benfield L, Logue J et al. ", a(href="http://www.bmj.com/conten
 p("2. Frayling TM, Timpson NJ, Weedon MN et al.", a(href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2646098/", "A Common variant in the FTO gene is associated with body mass index and predisposes to childhood and adult obesity."), "Science 2007; 316(5826): 889-894.")),
         wellPanel(h4("Citation"),
         p(a(href="http://ije.oxfordjournals.org/content/42/5/1497.abstract", "Calculating statistical power in Mendelian randomization studies"), "Marie-Jo A Brion, Konstantin Shakhbazov, Peter M Visscher", "International Journal of Epidemiology 2013 42: 1497-1501")),
-        wellPanel(p(a(href="https://github.com/kn3in/mRnd", "Source code at GitHub")))
-)))
+        wellPanel(p(a(href="https://github.com/kn3in/mRnd", "Source code at GitHub"))))
+}
+
+
+app_input <- function() {
+  sidebarPanel(
+    h4("Input"),
+    wellPanel(
+      h6("Calculate:"),
+      radioButtons("my_method", "",
+                     list("Power" = "power",
+                          "Sample size" = "samp_size")),
+      h6("Provide:"), 
+    conditionalPanel(condition = 'input.my_method == "power"',
+                     numericInput("N", "Sample size", min = 1, value = 1000, step = 1)),
+    conditionalPanel(condition = 'input.my_method == "samp_size"',
+                     numericInput("epower", "Power", min = 0, max = 1, value = 0.8))),
+
+    wellPanel(numericInput("alpha", HTML("\\(\\alpha\\)"), min = 0, max = 1, value = 0.05),
+              helpText("Type-I error rate")),
+    
+    wellPanel(numericInput("byx", HTML("\\(\\beta_{yx}\\)"), value = 0),
+              helpText("The regression coefficient \\(\\beta_{yx}\\) for the true underlying causal association between the exposure \\((X)\\) and outcome \\((Y)\\) variables")),
+    
+    wellPanel(numericInput("bOLS", HTML("\\(\\beta_{OLS}\\)"), value = 0),
+              helpText("The regression coefficient \\(\\beta_{OLS}\\) for the observational association between the exposure \\((X)\\) and outcome \\((Y)\\) variables")),
+    
+    wellPanel(numericInput("R2xz", HTML("\\(R^2_{xz}\\)"), min = 0, max = 1, value = 0.01),
+              helpText("Proportion of variance explained for the association between the snp \\((Z)\\) and the exposure variable \\((X)\\)")),
+    
+    wellPanel(numericInput("varx", HTML("\\(\\sigma^2(x)\\)"), value = 1),
+              helpText("Variance of the exposure variable \\((X)\\)")),
+    
+    wellPanel(numericInput("vary", HTML("\\(\\sigma^2(y)\\)"), value = 1),
+              helpText("Variance of the outcome variable \\((Y)\\)")))
+}
+
+
+
+shinyUI(
+  pageWithSidebar(
+    customHeaderPanel("mRnd: Power calculations for Mendelian Randomization"),
+    app_input(),
+    app_output()))
