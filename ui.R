@@ -1,5 +1,4 @@
 library(shiny)
-library(knitr)
 source("custom_html.R")
 source("cont_input.R")
 source("cont_output.R")
