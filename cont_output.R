@@ -1,5 +1,5 @@
 app_output <- function() {
-mainPanel(wellPanel(
+list(wellPanel(
             h4("Two-stage least squares"),
             tableOutput("result"),
             HTML("

@@ -1,5 +1,5 @@
 app_input <- function() {
-  sidebarPanel(
+ list(
     h4("Input"),
     wellPanel(
       h6("Calculate:"),

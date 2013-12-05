@@ -6,5 +6,6 @@ source("cont_output.R")
 shinyUI(
   pageWithSidebar(
     customHeaderPanel("mRnd: Power calculations for Mendelian Randomization"),
-    app_input(),
-    app_output()))
+    do.call(sidebarPanel, app_input()),
+    do.call(mainPanel , app_output()))
+)
