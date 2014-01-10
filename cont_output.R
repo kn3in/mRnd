@@ -26,5 +26,7 @@ p("1. Lawlor DA, Benfield L, Logue J et al. ", a(href="http://www.bmj.com/conten
 p("2. Frayling TM, Timpson NJ, Weedon MN et al.", a(href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2646098/", "A Common variant in the FTO gene is associated with body mass index and predisposes to childhood and adult obesity."), "Science 2007; 316(5826): 889-894.")),
         wellPanel(h4("Citation"),
         p(a(href="http://ije.oxfordjournals.org/content/42/5/1497.abstract", "Calculating statistical power in Mendelian randomization studies"), "Marie-Jo A Brion, Konstantin Shakhbazov, Peter M Visscher", "International Journal of Epidemiology 2013 42: 1497-1501")),
-        wellPanel(p(a(href="https://github.com/kn3in/mRnd", "Source code at GitHub"))))
+        wellPanel(HTML('<a href="https://github.com/kn3in/mRnd"><img src="img/GitHub-Mark-120px-plus.png" width=50 /> </a>'))    
+
+    )
 }
