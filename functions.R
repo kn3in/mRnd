@@ -59,3 +59,7 @@ results_beta_based <- function(N, alpha, R2xz, varx, vary, byx, epower) {
 
     }
 }
+
+results_binary <- function(N, alpha, R2xz, K, OR, epower) {
+   data.frame(x = "I don't do anything at the moment")
+}

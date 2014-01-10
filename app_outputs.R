@@ -30,7 +30,7 @@ p("2. Frayling TM, Timpson NJ, Weedon MN et al.", a(href="http://www.ncbi.nlm.ni
 
 
 app_output_binary <- function() {
-list()
+list(wellPanel(tableOutput("result_binary")))
 }
 
 app_about <- function(x) {
