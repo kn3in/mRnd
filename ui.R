@@ -6,6 +6,10 @@ source("cont_output.R")
 shinyUI(
   pageWithSidebar(
     customHeaderPanel("mRnd: Power calculations for Mendelian Randomization"),
-    do.call(sidebarPanel, app_input()),
-    do.call(mainPanel , app_output()))
-)
+    
+    sidebarPanel(
+      conditionalPanel(condition = "input.conditionedPanels==1", app_input())),
+    
+    mainPanel(
+      tabsetPanel(tabPanel("Continuous outcome", value = 1, app_output()) ,id = "conditionedPanels")
+)))
