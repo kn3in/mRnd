@@ -15,6 +15,7 @@ shinyUI(
     mainPanel(
       tabsetPanel(tabPanel("Continuous outcome", value = 1, app_output_cont()),
                   tabPanel("Binary outcome",     value = 2, app_output_binary()),
+                  tabPanel("Binary outcome derivations", value = 3, app_output_binary_deriv()),
                   tabPanel("Citation",           value = 3, app_about()),
                   id = "conditionedPanels")
 )))

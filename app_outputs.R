@@ -37,3 +37,7 @@ app_about <- function(x) {
   list(wellPanel(p(a(href="http://ije.oxfordjournals.org/content/42/5/1497.abstract", "Calculating statistical power in Mendelian randomization studies"), "Marie-Jo A Brion, Konstantin Shakhbazov, Peter M Visscher", "International Journal of Epidemiology 2013 42: 1497-1501")),
        wellPanel(HTML('<a href="https://github.com/kn3in/mRnd"><img src="img/GitHub-Mark-120px-plus.png" width=50 /> </a>')))
 }
+
+app_output_binary_deriv <- function() {
+  includeMarkdown("binary_derivation.md")
+}
