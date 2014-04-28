@@ -1,9 +1,4 @@
-<script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-Estimating Power in Mendelian Randomization: Binary Outcomes  
-========
+#### Estimating Power in Mendelian Randomization: Binary Outcomes
 
 Previous equations for estimating power using the non-centrality parameter in the case of continuous outcomes[^note-id] were adapted for binary outcomes using an approximate linear model on the observed binary (0-1) scale. The calculations below are approximations and in the absence of X-Y confounding.
 
