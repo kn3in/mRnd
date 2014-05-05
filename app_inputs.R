@@ -22,7 +22,7 @@ app_input_cont <- function() {
               helpText("The regression coefficient \\(\\beta_{OLS}\\) for the observational association between the exposure \\((X)\\) and outcome \\((Y)\\) variables")),
     
     wellPanel(numericInput("R2xz", HTML("\\(R^2_{xz}\\)"), min = 0, max = 1, value = 0.01),
-              helpText("Proportion of variance explained for the association between the snp \\((Z)\\) and the exposure variable \\((X)\\)")),
+              helpText("Proportion of variance explained for the association between the SNP or allele score \\((Z)\\) and the exposure variable \\((X)\\)")),
     
     wellPanel(numericInput("varx", HTML("\\(\\sigma^2(x)\\)"), value = 1),
               helpText("Variance of the exposure variable \\((X)\\)")),
@@ -54,5 +54,5 @@ app_input_binary <- function() {
                 helpText("True odds ratio of the outcome variable per standard deviation of the exposure variable")),
       
       wellPanel(numericInput("R2xz2", HTML("\\(R^2_{xz}\\)"), min = 0, max = 1, value = 0.01),
-                helpText("Proportion of variance explained for the association between the snp \\((Z)\\) and the exposure variable \\((X)\\)")))
+                helpText("Proportion of variance explained for the association between the SNP or allele score \\((Z)\\) and the exposure variable \\((X)\\)")))
 }
