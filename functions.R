@@ -60,8 +60,6 @@ results_beta_based <- function(N, alpha, R2xz, varx, vary, byx, epower) {
     }
 }
 
-# for now sole responsibility for this function on others ;)
-# have not tested it or verified derivation
 
 results_binary <- function(N, alpha, R2xz, K, OR, epower) {
     threschi <- qchisq(1 - alpha, 1) # threshold chi(1) scale
