@@ -92,3 +92,27 @@ results_binary <- function(N, alpha, R2xz, K, OR, epower) {
     
     }
 }
+
+parse_git <- function() {   
+    commit <- system("git log -1 --pretty=format:'%h - (%ci)' --abbrev-commit",  intern = TRUE)
+    tag    <- system("git describe --exact-match --abbrev=0 --tags",  intern = TRUE, ignore.stderr = FALSE)
+    list(tag = tag, commit = commit)
+}
+
+wrap_list_in_paragraphs <- function(a_list) lapply(a_list, p)
+
+pretty_git <- function() wrap_list_in_paragraphs(parse_git())
+
+push_name_into_paragraph <- function(name_of_item, a_list) p(paste(name_of_item, ": "), a_list[[name_of_item]])
+
+wrap_with_names <- function(a_list) lapply(names(a_list), function(x) push_name_into_paragraph(x, a_list))
+
+pretty_git2 <- function() wrap_with_names(parse_git())
+
+
+
+
+
+
+
+
