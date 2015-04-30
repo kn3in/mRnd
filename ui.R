@@ -1,4 +1,5 @@
 library(shiny)
+library(markdown)
 source("custom_html.R")
 source("app_inputs.R")
 source("app_outputs.R")
