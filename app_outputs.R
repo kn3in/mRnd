@@ -42,6 +42,6 @@ app_output_binary_deriv <- function() {
 }
 
 app_about2 <- function() {
-  list(wellPanel(pretty_git2()),
+  list(wellPanel(),
     wellPanel(HTML('<a href="https://github.com/kn3in/mRnd"><img src="img/GitHub-Mark-120px-plus.png" width=50 /> </a>')))
 }
