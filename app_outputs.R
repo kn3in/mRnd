@@ -34,7 +34,9 @@ list(wellPanel(tableOutput("result_binary")))
 }
 
 app_about <- function() {
-  list(wellPanel(p(a(href="http://ije.oxfordjournals.org/content/42/5/1497.abstract", "Calculating statistical power in Mendelian randomization studies"), "Marie-Jo A Brion, Konstantin Shakhbazov, Peter M Visscher", "International Journal of Epidemiology 2013 42: 1497-1501")))
+    list(wellPanel(p(strong("Continuous outcome:"), a(href="https://doi.org/10.1093/ije/dyt179", "Calculating statistical power in Mendelian randomization studies."), "Marie-Jo A Brion, Konstantin Shakhbazov, Peter M Visscher.", "International Journal of Epidemiology 2013 42: 1497-1501")),
+         wellPanel(p(strong("Binary outcome:"), a(href="https://doi.org/10.1093/ije/dyu005", "Sample size and power calculations in Mendelian randomization with
+a single instrumental variable and a binary outcome."), "Stephen Burgess.", "International Journal of Epidemiology 2014 43: 922–929")))
 }
 
 app_about2 <- function() {
